@@ -19,7 +19,7 @@ def __makeCookieDict__(cookieThing):
 
 def getLoginCookie(domain,url_login,username,password):
     cj = browser_cookie3.chrome(domain_name=domain)
-    if 'autologin_trustie' in cj._cookies[domain]['/'].keys():
+    if domain in cj._cookies and 'autologin_trustie' in cj._cookies[domain]['/'].keys():
         #already have cookie, return it
         return __makeCookieDict__(cj._cookies[domain]['/'])
     #else, make one
